@@ -8,16 +8,9 @@ BASE_DIR = Path(__file__).ancestor(3)
 with open("secrets.json") as f:
     secrets = json.loads(f.read())
 
-def get_env_variable(var_name):
-    try:
-        return os.environ[var_name]
-    except :
-        msg="la variable %s no existe" % var_name
-        raise ImproperlyConfigured(msg)
-
 def get_secret(secret_name, secrets = secrets):
     try:
-        return os.environ[secret_name]
+        return secrets[secret_name]
     except :
         msg="la variable %s no existe" % secret_name
         raise ImproperlyConfigured(msg)
