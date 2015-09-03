@@ -1,8 +1,22 @@
+from django.core.exceptions import ImproperlyConfigured
+import json
+
 from unipath import Path
 
 BASE_DIR = Path(__file__).ancestor(3)
 
-SECRET_KEY = '(#qv_n1at)$qvs=c&+bjq$ct17c4mybm7-p9)7o@rk^_uxyg30'
+with open("secrets.json") as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(secret_name, secrets=secrets):
+    try:
+        return secrets[secret_name]
+    except:
+        msg = "la variable %s no existe" % secret_name
+        raise ImproperlyConfigured(msg)
+
+SECRET_KEY = get_secret('SECRET_KEY')
 
 DEBUG = True
 
