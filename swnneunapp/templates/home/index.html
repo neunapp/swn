@@ -1,5 +1,7 @@
 {% extends "home/base_home.html" %}
 
+{% load staticfiles %}
+
 {% block title %}Sistemas web de ventas cusco | neunapp{% endblock title %}
 
 {% block content %}
@@ -18,7 +20,7 @@
             </div>
             <div class="row">
                 <div class="col s12 m4">
-                    <div class="card-panel hoverable grey lighten-5">
+                    <div class="card-panel hoverable">
                         <div class="row valign-wrapper">
                             <div class="col s3">
                                 <i class="mdi-navigation-check values-item"></i>
@@ -30,7 +32,7 @@
                     </div>    
                 </div>
                 <div class="col s12 m4">
-                    <div class="card-panel hoverable grey lighten-5">
+                    <div class="card-panel hoverable">
                         <div class="row valign-wrapper">
                             <div class="col s3">
                                 <i class="mdi-image-flash-on values-item"></i>
@@ -42,7 +44,7 @@
                     </div>    
                 </div>
                 <div class="col s12 m4">
-                    <div class="card-panel hoverable grey lighten-5">
+                    <div class="card-panel hoverable">
                       <div class="row valign-wrapper">
                         <div class="col s3">
                           <i class="mdi-action-favorite values-item"></i>
@@ -59,14 +61,150 @@
 
     <section class="services">
         <div class="container">
-            <h5 class="center-align">Nuestros servicios.</h5>
+            <h5 class="center-align light-blue-text text-accent-4 title-section">Nuestros Servicios.</h5>
             <div class="row">
-                <div class="col s12 m4"></div>
-                <div class="col s12 m4"></div>
-                <div class="col s12 m4"></div>
+
+                <div class="col s12 m4">
+                    <div class="">
+                        <div class="center">
+                            <i class="large mdi-action-extension icon-services"></i>
+                        </div>
+                        <h5 class="center light-blue-text text-accent-4">Software a medida</h5>
+                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt voluptatibus harum recusandae delectus aperiam, ribus omnis rem.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="">
+                        <div class="center">
+                            <i class="large mdi-file-cloud-done icon-services"></i>
+                        </div>
+                        <h5 class="center light-blue-text text-accent-4">Aplicaciones en la nuve.</h5>
+                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A provident odio hic maxime sequi praesentium, iste . Ea, atque.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="">
+                        <div class="center">
+                            <i class="large mdi-av-equalizer icon-services"></i>
+                        </div>
+                        <h5 class="center light-blue-text text-accent-4">Software como servicio.</h5>
+                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, voluptate et quibusdam, optio odio consequatur qui voluptatem. molestiae alias delectus fuga dolorem ipsam laudantium.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="technology">
+        <div class="container">
+            <h5 class="center-align light-blue-text text-accent-4 title-section">La Tecnologia que usamos.</h5>
+            <div class="row">
+
+                <div class="col s12 m4">
+                    <div class="item technology-django">
+                        <div class="row valign-wrapper">
+                            <div class="col s3">
+                                <img src="{% static 'img/django.png' %}" class="responsive-img">
+                            </div>
+                            <div class="col s9">
+                                <h5>Django.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="item technology-heroku">
+                        <div class="row valign-wrapper">
+                            <div class="col s3">
+                                <img src="{% static 'img/heroku.png' %}" class="responsive-img">
+                            </div>
+                            <div class="col s9">
+                                <h5>Heroku.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="item technology-backbone">
+                        <div class="row valign-wrapper">
+                            <div class="col s3">
+                                <img src="{% static 'img/backbone-js.png' %}" class="responsive-img">
+                            </div>
+                            <div class="col s9">
+                                <h5>Backbone.js.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Releases">
+        <div class="container">
+            <h5 class="center-align light-blue-text text-accent-4 title-section">Publicaciones Recientes.</h5>
+            <div class="row">
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="{% static 'img/django.png' %}">
+                        </div>
+                        <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Card Title<i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Leer mas...</a></p>
+                        </div>
+                        <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Card Title<i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="{% static 'img/heroku.png' %}">
+                        </div>
+                        <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Card Title<i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Leer mas...</a></p>
+                        </div>
+                        <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Django<i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="{% static 'img/backbone-js.png' %}">
+                        </div>
+                        <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4"><i class="mdi-navigation-more-vert right"></i>backbone.js</span>
+                          <p><a href="#">Leer mas...</a></p>
+                        </div>
+                        <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Card Title<i class="mdi-navigation-close right"></i></span>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae animi tenetur molestias magnam facere ad necessitatibus nisi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients">
+        
+    </section>
+    
+    {% include "include/social.html" %}
 
     {% include "include/footer.html" %}
     

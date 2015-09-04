@@ -1,3 +1,7 @@
+body{
+    background-color: #fafafa;
+}
+
 nav ul a{
     color: #1565c0;
 }
@@ -20,4 +24,38 @@ nav ul a{
     font-size: 1.5em;
     margin: 0;
     padding: 4px 8px;
+}
+
+.icon-services{
+    border: 1px solid #0091ea;
+    border-radius: 50%;
+    padding: 0px 21px;
+    color: #0091ea;
+}
+
+.title-section{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.technology .item .row{
+    margin-bottom: 0;
+}
+
+
+.technology-django, .technology-heroku, .technology-backbone{
+    border-radius: 5px;
+    margin: 0.5em 0;
+    padding: 5px 0 3px 3px; 
+}
+.technology-django{
+    border: 2px solid #508067;
+}
+
+.technology-heroku{
+    border: 2px solid #57418F;
+}
+
+.technology-backbone{
+    border: 2px solid #015180;
 }
