@@ -32,7 +32,7 @@ DJANGO_APPS = (
 )
 
 LOCAL_APPS = (
-
+    'apps.home',
 )
 
 THIRD_PARTY_APPS = (
@@ -70,6 +70,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'swnneunapp.wsgi.application'
+
+# Envio de correos
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
 
 LANGUAGE_CODE = 'es-pe'
 

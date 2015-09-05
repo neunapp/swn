@@ -34,7 +34,7 @@ urlpatterns = [
     #url que direccionara a su pagina conatctenos
     url(
         r'^conatcto/$',
-        views.Contacto.as_view(),
+        views.ContactoView.as_view(),
         name='contacto'
     ),
 ]

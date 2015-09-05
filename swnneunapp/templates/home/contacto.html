@@ -8,9 +8,56 @@
 
     {% include "include/banner.html" %}
 
-    <h1>
-    	{{form}}
-    </h1>
+    <div class="row">
+            <div class="col s6 m6 l6">
+                <div class="card-panel">
+                  <div class="row">
+                    <form class="col s12" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                      <div class="row">
+                        <div class="input-field col s12">
+                        <i class="mdi-action-account-circle prefix"></i>
+                          {{form.name}}
+                          {{form.name.label_tag}}
+                        </div>
+                        <div class="input-field col s12">
+                        <i class="mdi-communication-email prefix"></i>
+                          {{form.email}}
+                          {{form.email.label_tag}}
+                        </div>
+                        <div class="input-field col s12">
+                        <i class="mdi-communication-phone prefix"></i>
+                          {{form.phone}}
+                          {{form.phone.label_tag}}
+                        </div>
+                        <div class="input-field col s12">
+                        <i class="mdi-action-query-builder prefix"></i>
+                          {{form.horario}}
+                          {{form.horario.label_tag}}
+                        </div>
+                        <div class="input-field col s12">
+                        <i class="mdi-communication-comment prefix"></i>
+                          {{form.business}}
+                          {{form.business.label_tag}}
+                        </div>
+                        <div class="input-field col s12">
+                        <i class="mdi-communication-textsms prefix"></i>
+                            {{form.menssage}}
+                            {{form.menssage.label_tag}}
+                        </div>  
+                        <div class="row">
+                                <div class="input-field col s12">
+                                      <button class="btn cyan waves-effect waves-light center" type="submit" name="action">Enviar
+                                        <i class="mdi-content-send right"></i>
+                                      </button>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                </div><!-- fin de card-panel -->
+              </div>
+        <div class="col s6 m6 l6">
+        </div>
+    </div>
 
     {% include "include/footer.html" %}
     
