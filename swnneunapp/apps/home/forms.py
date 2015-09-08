@@ -17,5 +17,5 @@ class ContactoForm(forms.Form):
         mensaje = self.cleaned_data['menssage']
         num_palabras = len(mensaje.split())
         if num_palabras<4:
-            raise forms.ValidationError("La consulta no es valida: Demasioado Corto El sistema no entiende le mensaje :(")
+            raise forms.ValidationError("La consulta no es valida: Demasiado Corto, El sistema no entiende le mensaje :(")
         return mensaje
