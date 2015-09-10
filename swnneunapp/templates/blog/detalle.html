@@ -1,0 +1,66 @@
+{% extends "home/base_home.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    {% include "include/header.html" %}
+
+     <div class="row">
+        <div class="col s12 m9">
+                <div class="row values-slogan">
+                  <div class="card-panel">
+                    <h4 class="truncate red-text text-darken-2 center-align">{{entrada.titulo}}</h4>
+                    <center><span class="card-title blue-text text-darken-1">Publicado el: {{entrada.fecha_publicacion}}</span></center>
+                        <p>{{entrada.contenido|safe}}</p>
+                  </div>
+                  <div class="card-title">
+                    <ul class="pagination">
+                    {% for ets in entradas %} 
+                     <li class="waves-effect"><a href="/blog/{{ets.slug}}">{{ets.id}}</a></li>
+                    {% endfor %}   
+                    </ul> 
+                  </div>   
+                </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card"><!-- inicio del card panel -->
+            <center><p class="flow-text red-text text-darken-1">Suscribase a Nuestra Lista de Correo</p></center>
+            <form class="col s12" method="POST" enctype="multipart/form-data" id="form_datos">{% csrf_token %}
+            <div class="input-field col s12">
+            <i class="mdi-communication-email prefix"></i>
+              {{form.email}}
+              {{form.email.label_tag}}
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-action-account-circle prefix"></i>
+              {{form.name}}
+              {{form.name.label_tag}}
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-action-subject prefix"></i>
+              {{form.last_name}}
+              {{form.last_name.label_tag}}
+            </div>
+            <div class="row">
+                 <div class="input-field col s12">
+                    <center><button class="btn cyan waves-effect waves-light center" type="submit" name="action">Suscribirse
+                    <i class="mdi-content-send right"></i>
+                    </button></center>
+                </div>
+              </div> 
+          </div><!-- fin de card-panel 2 -->
+          <div class="card"><!-- inicio del card panel 2-->
+            <center><p class="flow-text red-text text-darken-1">Categorias</p></center>
+            {% for categoria in categorias %}
+              <div class="collection">
+                <a href="#" class="collection-item">{{categoria.nombre}}<span class="new badge">4</span></a>
+              </div>
+            {% endfor %}
+          </div><!-- fin de card-panel 2-->
+        </div>
+     </div>
+	{% include "include/social.html" %}
+	{% include "include/footer.html" %}
+    
+{% endblock content %}

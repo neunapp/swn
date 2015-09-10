@@ -8,17 +8,17 @@
                     <li><a href="{% url 'home_app:index' %}">Home</a></li>
                     <li><a href="{% url 'home_app:nosotros' %}">Quienes somos</a></li>
                     <li><a href="{% url 'home_app:servicios' %}">Servicios</a></li>
-                    <li><a href="{% url 'home_app:blog' %}">Blog</a></li>
-                    <li><a href="{% url 'home_app:foro' %}">Foro</a></li>
+                    <li><a href="{% url 'blog_app:blogger' %}">Blog</a></li>
+                    <li><a href="#">Foro</a></li>
                     <li><a href="{% url 'home_app:contacto' %}">Contactenos</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Quienes somós</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="{% url 'home_app:index' %}">Home</a></li>
+                    <li><a href="{% url 'home_app:nosotros' %}">Quienes somós</a></li>
+                    <li><a href="{% url 'home_app:servicios' %}">Servicios</a></li>
+                    <li><a href="{% url 'blog_app:blogger' %}">Blog</a></li>
                     <li><a href="#">Foro</a></li>
-                    <li><a href="#">Contactenos</a></li>
+                    <li><a href="{% url 'home_app:contacto' %}">Contactenos</a></li>
                     <li><a href="#">login</a></li>
                 </ul>
             </div>

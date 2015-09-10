@@ -19,18 +19,6 @@ urlpatterns = [
         views.Servicios.as_view(),
         name='servicios'
     ),
-    #url que direccionara s sub pagina blog
-    url(
-        r'^blog/$',
-        views.Blogger.as_view(),
-        name='blog'
-    ),
-    #url que direccionara a sub pagina foro
-    url(
-        r'^foro/$',
-        views.Foro.as_view(),
-        name='foro'
-    ),
     #url que direccionara a su pagina conatctenos
     url(
         r'^conatcto/$',

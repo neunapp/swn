@@ -19,12 +19,6 @@ class Nosotros(TemplateView):
 class Servicios(TemplateView):
 	template_name = "home/servicios.html"
 
-class Blogger(TemplateView):
-	template_name = "home/blogger.html"
-
-class Foro(TemplateView):
-	template_name = "home/foro.html"
-
 #formulario que registrar y enviar datos a un correo email
 class ContactoView(FormView):
     template_name = "home/contacto.html"
