@@ -10,9 +10,7 @@ class SuscripcionForm(forms.Form):
     last_name = forms.CharField(
         label='Su Apellido:',
         max_length='50', required=False)
-    email = forms.EmailField(label='Su E-mail:')
-        label='Su Apellido',
+    email = forms.EmailField(label='Su E-mail:',
         max_length='70',
-        required=False
+        required=False,
     )
-    email = forms.EmailField(label='Su E-mail')
