@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Entrada, Categoria, Suscripcion
+from .models import Category, Entry, Subscription
 # Register your models here.
 
-admin.site.register(Entrada)
-admin.site.register(Categoria)
-admin.site.register(Suscripcion)
+admin.site.register(Category)
+admin.site.register(Entry)
+admin.site.register(Subscription)

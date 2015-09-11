@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView
 from django.views.generic import FormView
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import send_mail 
