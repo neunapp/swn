@@ -10,4 +10,3 @@ class SucripcionForm(forms.Form):
         label='Su Apellido:',
         max_length='50', required=False)
     email = forms.EmailField(label='Su E-mail:')
-    print '================ entro al formulario form ==============='

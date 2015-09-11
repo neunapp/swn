@@ -11,7 +11,7 @@
               {% for entrada in entradas %}
                 <div class="card"> <!-- inicio del card panel -->
                   <div class="card-panel">
-                     <img src="http://www.aptuz.com/static/media/uploads/blog/django_migrations_title.png"> 
+                     <img src="{{ entrada.imagen.url }}"> 
                   </div>
                   <div class="card-content">
                     <span class="card-title blue-text text-darken-2">{{entrada.titulo}}</span>
