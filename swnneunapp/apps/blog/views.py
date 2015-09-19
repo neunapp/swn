@@ -35,7 +35,7 @@ class DetalleEntrada(FormMixin, DetailView):
     model = Entry
     form_class = SuscripcionForm
     template_name = 'blog/detalle.html'
-
+    
     def get_success_url(self):
         return reverse_lazy('blog_app:blogger')
 
@@ -47,15 +47,6 @@ class DetalleEntrada(FormMixin, DetailView):
         context['entrys'] = Entry.objects.all()
         context['categorys'] = Category.objects.order_by('name')
         return context
-
-    def post(self, request, *args, **kwargs):
-        # get_object() es el parametro matricula q se psa por url
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
 
     def form_valid(self, form):
         first_name = form.cleaned_data['name']

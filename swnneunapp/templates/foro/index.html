@@ -1,0 +1,87 @@
+{% extends "home/base_home.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    {% include "include/header.html" %}
+    {% include "include/banner.html" %}
+
+    	<div class="card-action">
+    	  <center><span class="blue-text text-darken-2">¡Participa!: Comparte con nosotras tus dudas, ideas y experiencias  <a class="waves-effect waves-teal red-text btn-flat modal-trigger" href="#modal1">Abrir un Tema</a></span></center>
+    	</div>
+
+    	<div class="card-panel"><!-- Inicio Carpanel -->
+    	  <center><h5><span class="red-text text-darken-1">Desarrollo Software</span></h5></center>
+			<ul class="collection">
+			{% for question in questions %}
+              <li class="collection-item avatar">
+                {% if not question.username.avatar%}
+                <img src="{% static 'img/logo_neu.png' %}" alt="" class="circle">
+                {% else %}
+                <img src="{{ question.username.avatar.url }}" alt="" class="circle">
+                {% endif %}
+                <span class="title blue-text text-darken-1"><a href="/foro/{{question.slug}}">{{question.title}}</a></span>
+                <p><span class="grey-text text-darken-2">{{question.question}}</span></p>
+                <a href="/foro/{{question.slug}}" class="secondary-content"><i class="material-icons">{{question.countanswer}}</i></a>
+              </li>
+             {% endfor %}
+            </ul>
+
+    	</div><!--Fin Car Panel -->          
+
+        <!-- Contenido del Modal -->
+
+          <div id="modal1" class="modal modal-fixed-footer">
+           <div class="modal-content">
+            <div class="container">
+                <h6 class="truncate red-text text-darken-5 center-align">
+                            Publique su Pregunta:
+                </h6>
+              <form class="col s12" method="POST" enctype="multipart/form-data" id="form_datos">{% csrf_token %}
+                          <div class="input-field col s6">
+                            {{form.email}}
+                            {{form.email.label_tag}}
+                          </div>
+                          <div class="input-field col s12">
+                            {{form.title}}
+                            {{form.title.label_tag}}
+                          </div>
+                          <div class="input-field col s12">
+                            {{form.question}}
+                            {{form.question.label_tag}}
+                          </div>
+                          <div class="input-field col s12">
+                            {{form.apelativo}}
+                            {{form.apelativo.label_tag}}
+                          </div>
+                          <div class="input-field col s12">
+                            {{form.image}}
+                          </div>
+            </div>
+           </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="input-field col s12">
+                     <button class="btn cyan waves-effect waves-light center" type="submit" name="action">Publicar
+                     <i class="mdi-action-done-all right"></i>
+                     </button>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+
+          <script type="text/javascript" src="{% static 'jquery/jquery-1.11.3.min.js' %}"></script>
+          <script src"{% static 'js/materialize.js' %}"></script>
+          <script>
+          $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+          });
+          </script>
+    
+    {% include "include/social.html" %}
+	{% include "include/footer.html" %}
+    
+{% endblock content %}
