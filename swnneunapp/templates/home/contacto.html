@@ -12,6 +12,7 @@
             <div class="col s12 m6 ">
                 <div class="card-panel">
                   <div class="row">
+                    <h5 class="truncate red-text text-darken-2 center-align">Envienos su Consulta</h5>
                     <form class="col s12" method="POST" enctype="multipart/form-data" id="form_datos">{% csrf_token %}
                       <div class="row">
                         <div class="input-field col s12">
@@ -60,46 +61,19 @@
         <div class="card-panel">
           <h4 class="truncate red-text text-darken-2 center-align">Preguntas Frecuentes</h4>
             <ul class="collection">
+            {% for question in questions %}
               <li class="collection-item avatar">
-                <img src="{% static 'img/django.png' %}" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                {% if not question.username.avatar%}
+                <img src="{% static 'img/logo_neu.png' %}" alt="" class="circle">
+                {% else %}
+                <img src="{{ question.username.avatar.url }}" alt="" class="circle">
+                {% endif %}
+                <span class="title blue-text text-darken-1"><a href="/foro/{{question.slug}}">{{question.title}}</a></span>
+                <p><span class="grey-text text-darken-2">{{question.question}}</span></p>
+                <p><span class="red-text text-darken-1">{{question.username.username}}</span></p>
+                <a href="#!" class="secondary-content"><i class="material-icons">{{question.answers}}</i></a>
               </li>
-              <li class="collection-item avatar">
-                <img src="{% static 'img/django.png' %}" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <img src="{% static 'img/backbone-js.png' %}" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <img src="{% static 'img/heroku.png' %}" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <img src="{% static 'img/django.png' %}" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
+             {% endfor %}
             </ul>
         </div>
         <!-- -->

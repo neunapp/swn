@@ -14,3 +14,4 @@ class SuscripcionForm(forms.Form):
         max_length='70',
         required=False,
     )
+

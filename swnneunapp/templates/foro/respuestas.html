@@ -1,0 +1,87 @@
+{% extends "home/base_home.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    {% include "include/header.html" %}
+            <div class="row">
+                <div class="card">
+                   <div class="col s12">
+                    <div class="card"> <!--Inicio de Pregunta -->
+                        <h5 class="truncate red-text text-darken-5 center-align">
+                            {{object.title}}
+                        </h5>
+                        <h6 class="truncate blue-text text-darken-2 center-align">
+                            {{object.date}}
+                        </h6>
+                        <div class="card-content">
+                           <ul class="collection">
+                               <li class="collection-item avatar"> 
+                                {% if not object.username.avatar%}
+                                <img src="{% static 'img/logo_neu.png' %}" alt="" class="circle">
+                                {% else %}
+                                <img src="{{object.username.avatar.url}}" alt="" class="circle">
+                                {% endif %}
+                                <p class="truncate blue-text text-darken-2"> 
+                                    {{object.username.first_name}}</p>
+                                <p>    
+                                    {{object.question}} 
+                                </p>
+                               </li>
+                           </ul>
+                        </div>
+                    </div><!--Fin de Pregunta -->
+                   </div>
+                   <div class="col s12">
+                    <div class="card"><!-- Lista de Preguntas-->
+                        <p class="truncate red-text text-darken-5 center-align">
+                            Respuestas:
+                        </p>
+                        <div class="card-content">
+                         <div class="container" >
+                           <ul class="collection">
+                            {% for answer in answers %}
+                               <li class="collection-item avatar"> 
+                                <p class="truncate blue-text text-darken-5"> 
+                                    {{answer.username}}</p>
+                                <p>    
+                                    {{answer.answer}} 
+                                </p>
+                                <a class="secondary-content"><i class="material-icons">{{answer.date}}</i></a>
+                               </li>
+                            {% endfor %}
+                           </ul>
+                         </div>
+                        </div>
+                    </div><!-- Fin Lista de Preguntas-->
+                    <div class="card small"><!-- Inicio de Fromulario de Pregunta-->
+                     <h5 class="truncate red-text text-darken-5 center-align">
+                            Sugiera una Respuesta:
+                     </h5>
+                    <div class="container">
+                    <form class="col s12" method="POST" enctype="multipart/form-data" id="form_datos">{% csrf_token %}
+                          <div class="input-field col s6">
+                            {{form.email}}
+                            {{form.email.label_tag}}
+                          </div>
+                          <div class="input-field col s12">
+                            {{form.answer}}
+                            {{form.answer.label_tag}}
+                          </div>
+                          <div class="row">
+                                <div class="input-field col s12">
+                                      <button class="btn cyan waves-effect waves-light center" type="submit" name="action">Publicar
+                                        <i class="mdi-action-done-all right"></i>
+                                      </button>
+                                </div>
+       				   </div>
+       				  </div>
+                    </div>
+                    </div> <!--Fin Formulario Pregunta -->
+                </div>
+            </div>
+    {% include "include/social.html" %}
+    {% include "include/footer.html" %}
+    
+{% endblock content %}

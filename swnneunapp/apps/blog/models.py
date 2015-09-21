@@ -46,10 +46,10 @@ class Entry(models.Model):
 
 
 class Subscription(models.Model):
-    first_name = models.CharField('nombres', max_length=50)
-    last_name = models.CharField('apellidos', max_length=50)
+    first_name = models.CharField('nombres', max_length=50, null=True)
+    last_name = models.CharField('apellidos', max_length=50, null=True)
     email = models.EmailField('E-mail', max_length=50, unique=True)
-
+    avatar = models.ImageField(upload_to='users', blank=True, null=True)
     class Meta:
         verbose_name = 'Suscripcion'
         verbose_name_plural = 'Suscripciones'

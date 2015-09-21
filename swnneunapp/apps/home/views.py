@@ -4,6 +4,8 @@ from django.views.generic import FormView
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import send_mail
 
+from apps.foro.models import Question
+
 from .models import Contacto
 
 from .forms import ContactoForm
@@ -26,6 +28,11 @@ class ContactoView(FormView):
     template_name = "home/contacto.html"
     form_class = ContactoForm
     success_url = reverse_lazy('home_app:contacto')
+
+    def get_context_data(self, **kwargs):
+        context = super(ContactoView, self).get_context_data(**kwargs)
+        context['questions'] = Question.objects.order_by('date')[:6]
+        return context
 
     def form_valid(self, form):
         # recuperamos los valores para la tabla Contacto
