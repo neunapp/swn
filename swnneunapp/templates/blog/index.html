@@ -7,58 +7,65 @@
     {% include "include/header.html" %}
 
     <div class="row">
-        <div class="col s12 m9 ">
-              {% for entrada in entradas %}
+        <div class="col s12 m7 l9">
+            {% for entree in entree_list %}
                 <div class="card"> <!-- inicio del card panel -->
-                  <div class="card-panel">
-                     <img src="{{ entrada.imagen.url }}"> 
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title blue-text text-darken-2">{{entrada.titulo}}</span>
-                    <p>{{entrada.resumen|safe}}</p>
-                  </div>
-                  <div class="card-action">
-                    <a href="/blog/{{entrada.slug}}">Ver Mas</a>
-                  </div>
+                    <div class="card-image">
+                        <img src="{{ entree.image.url }}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title blue-text text-darken-2">{{ entree.title }}</span>
+                        <div class="light">
+                            {{ entree.content|safe|truncatechars_html:300 }}
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="/blog/{{ entree.slug }}">Ver Más..</a>
+                    </div>
                 </div><!-- fin de card-panel -->
-              {% endfor %}
-        </div>
-        <div class="col s12 m3">
-        <!-- -->
-          <div class="card"><!-- inicio del card panel -->
-            <center><p class="flow-text red-text text-darken-1">Suscribase a Nuestra Lista de Correo</p></center>
-            <form class="col s12" method="POST" enctype="multipart/form-data" id="form_datos">{% csrf_token %}
-            <div class="input-field col s12">
-            <i class="mdi-communication-email prefix"></i>
-              {{form.email}}
-              {{form.email.label_tag}}
-            </div>
-            <div class="input-field col s12">
-              <i class="mdi-action-account-circle prefix"></i>
-              {{form.name}}
-              {{form.name.label_tag}}
-            </div>
-            <div class="input-field col s12">
-              <i class="mdi-action-subject prefix"></i>
-              {{form.last_name}}
-              {{form.last_name.label_tag}}
-            </div>
-            <div class="row">
-                 <div class="input-field col s12">
-                    <center><button class="btn cyan waves-effect waves-light center" type="submit" name="action">Suscribirse
-                    <i class="mdi-content-send right"></i>
-                    </button></center>
-                </div>
-              </div> 
-          </div><!-- fin de card-panel  -->
-          <div class="card"><!-- inicio del card panel 2-->
-            <center><p class="flow-text red-text text-darken-1">Categorias</p></center>
-            {% for categoria in categorias %}
-              <div class="collection">
-                <a href="#" class="collection-item">{{categoria.nombre}}<span class="badge">1</span></a>
-              </div>
             {% endfor %}
-          </div><!-- fin de card-panel 2-->
+            
+            {% include "include/pagination.html" %}
+        </div>
+
+
+        <div class="col s12 m5 l3">
+            <div class="card"><!-- inicio del card panel -->
+                <p class="flow-text red-text text-darken-1 center-align">Suscribase a Nuestra Lista de Correo</p>
+                <form class="col s12" method="POST" id="form_datos">{% csrf_token %}
+                    <div class="input-field col s12">
+                    <i class="mdi-communication-email prefix"></i>
+                      {{ form.email }}
+                      {{ form.email.label_tag }}
+                    </div>
+                    <div class="input-field col s12">
+                      <i class="mdi-action-account-circle prefix"></i>
+                      {{ form.first_name }}
+                      {{ form.first_name.label_tag }}
+                    </div>
+                    <div class="input-field col s12">
+                      <i class="mdi-action-subject prefix"></i>
+                      {{form.last_name}}
+                      {{form.last_name.label_tag}}
+                    </div>
+                    <div class="row">
+                         <div class="input-field col s12 center">
+                            <button class="btn cyan waves-effect waves-light" type="submit" name="action">Suscribirse
+                            <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- fin de card-panel  -->
+
+            <div class="card hide-on-small-only"><!-- inicio del card panel 2-->
+            <p class="flow-text red-text text-darken-1 center-align">Categorias</p>
+                {% for category in categorys %}
+                  <div class="collection">
+                    <a href="#" class="collection-item">{{ category.name }}<span class="badge">1</span></a>
+                  </div>
+                {% endfor %}
+            </div><!-- fin de card-panel 2-->
         <!-- -->
         </div> 
     </div>

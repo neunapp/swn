@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     url(
-        r'^blog$',
+        r'^blog/$',
         views.IndexBlog.as_view(),
         name="blogger"
     ),
