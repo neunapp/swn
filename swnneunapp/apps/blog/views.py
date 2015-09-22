@@ -10,7 +10,7 @@ from .forms import SuscripcionForm
 class IndexBlog(FormMixin, ListView):
     context_object_name = 'entree_list'
     template_name = 'blog/index.html'
-    paginate_by = 2
+    paginate_by = 4
     form_class = SuscripcionForm
     success_url = reverse_lazy('blog_app:blogger')
 

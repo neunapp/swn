@@ -1,15 +1,40 @@
 {% if is_paginated %}
 
     <div role="navigation">
-        <ul class="cd-pagination animated-buttons custom-icons">
-            <li class="button"><a href="#0"><i>Prev</i></a></li>
-            <li><a href="#0">1</a></li>
-            <li><a href="#0">2</a></li>
-            <li><a class="current" href="#0">3</a></li>
-            <li><a href="#0">4</a></li>
-            <li><span>...</span></li>
-            <li><a href="#0">20</a></li>
-            <li class="button"><a href="#0"><i>Next</i></a></li>
+        <ul class="cd-pagination">
+            {% if page_obj.has_previous %}
+                <li class="button">
+                    <a href="?page={{ page_obj.previous_page_number }}"><i>Anterior</i></a>
+                </li>
+            {% else %}
+                <li class="button">
+                    <a class="disabled" href="#"><i>Anterior</i></a>
+                </li>
+            {% endif %}
+            {% for num_page in paginator.page_range %}
+
+                {% if page_obj.number|add:'-5' <= num_page and page_obj.number|add:"5" >= num_page %}
+
+                    {%if page_obj.number == num_page %}
+
+                        <li><a class="current" href="#">{{ num_page }}</a></li>
+                    {% else %}
+                        <li><a href="?page={{ num_page }}">{{ num_page }}</a></li>
+                    {% endif %}
+                {% endif %}
+                  
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="button">
+                    <a href="?page={{ page_obj.next_page_number }}">
+                    <i>Siguiente</i></a>
+                </li>
+            {% else %}
+                <li class="button">
+                    <a class="disabled" href="#"><i>Siguiente</i></a>
+                </li>
+            {% endif %}
+            
         </ul>
     </div> <!-- cd-pagination-wrapper -->
 
