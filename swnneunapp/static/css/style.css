@@ -152,3 +152,21 @@ div[role="navigation"] {
     margin: 4em auto 6em;
   }
 }
+
+
+/* -------------------------------- 
+
+Footer content
+
+-------------------------------- */
+
+.footer-title {
+  font-size: 1.1em;
+  text-align: center;
+  display: block;
+}
+
+.footer-info {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
