@@ -4,8 +4,8 @@
 
 {% block content %}
 
-	{% include "include/banner.html" %}
     {% include "include/header.html" %}
+    {% include "include/banner.html" %}
 
     <div class="row">
         <div class="col s12 m7 l9">
@@ -63,7 +63,7 @@
             <p class="flow-text red-text text-darken-1 center-align">Categorias</p>
                 {% for category in categorys %}
                   <div class="collection">
-                    <a href="#" class="collection-item">{{ category.name }}<span class="badge">1</span></a>
+                    <a href="{% url 'blog_app:blogger' %}" class="collection-item">{{ category.name }}<span class="new badge"></span></a>
                   </div>
                 {% endfor %}
             </div><!-- fin de card-panel 2-->

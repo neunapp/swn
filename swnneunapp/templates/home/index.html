@@ -149,53 +149,23 @@
             <h5 class="center-align light-blue-text text-accent-4 title-section">Publicaciones Recientes.</h5>
             <div class="row">
 
+            {% for entree in entrys  %}
                 <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                          <img class="activator" src="{% static 'img/django.png' %}">
+                          <img class="activator" src="{{ entree.image.url }}">
                         </div>
                         <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4">Card Title<i class="mdi-navigation-more-vert right"></i></span>
-                          <p><a href="#">Leer mas...</a></p>
+                          <span class="card-title activator grey-text text-darken-4">{{ entree.title }}<i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="/blog/{{ entree.slug }}">Leer mas...</a></p>
                         </div>
                         <div class="card-reveal">
-                          <span class="card-title grey-text text-darken-4">Card Title<i class="mdi-navigation-close right"></i></span>
-                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                          <span class="card-title grey-text text-darken-4">{{ entree.title }}<i class="mdi-navigation-close right"></i></span>
+                          <p>{{ entree.content|safe|truncatechars_html:300 }}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col s12 m4">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                          <img class="activator" src="{% static 'img/heroku.png' %}">
-                        </div>
-                        <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4">Card Title<i class="mdi-navigation-more-vert right"></i></span>
-                          <p><a href="#">Leer mas...</a></p>
-                        </div>
-                        <div class="card-reveal">
-                          <span class="card-title grey-text text-darken-4">Django<i class="mdi-navigation-close right"></i></span>
-                          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                          <img class="activator" src="{% static 'img/backbone-js.png' %}">
-                        </div>
-                        <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4"><i class="mdi-navigation-more-vert right"></i>backbone.js</span>
-                          <p><a href="#">Leer mas...</a></p>
-                        </div>
-                        <div class="card-reveal">
-                          <span class="card-title grey-text text-darken-4">Card Title<i class="mdi-navigation-close right"></i></span>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae animi tenetur molestias magnam facere ad necessitatibus nisi.</p>
-                        </div>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
         </div>
     </section>

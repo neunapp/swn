@@ -10,13 +10,35 @@ from .models import Contacto
 
 from .forms import ContactoForm
 
+from apps.blog.models import Entry, Subscription
+from apps.blog.forms import SuscripcionForm
+
 
 class Index(TemplateView):
     template_name = "home/index.html"
 
+    def get_context_data(self, **kwargs):
+        context = super(Index, self).get_context_data(**kwargs)
+        context['entrys'] = Entry.objects.order_by('created')[:3]
+        return context
 
-class Nosotros(TemplateView):
-    template_name = "home/nosotros.html"
+class Nosotros(FormView):
+    template_name = 'home/nosotros.html'
+    form_class = SuscripcionForm
+    success_url = reverse_lazy('home_app:nosotros')
+
+    def form_valid(self, form):
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        email = form.cleaned_data['email']
+        if Subscription.objects.filter(email=email).count()==0:
+            subscription = Subscription(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+            )
+            subscription.save()
+        return super(Nosotros, self).form_valid(form)
 
 
 class Servicios(TemplateView):
