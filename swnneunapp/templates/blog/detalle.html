@@ -5,22 +5,16 @@
 {% block content %}
 
     {% include "include/header.html" %}
+    {% include "include/banner.html" %}
 
      <div class="row">
         <div class="col s12 m9">
                 <div class="row values-slogan">
                   <div class="card-panel">
-                    <h4 class="truncate red-text text-darken-2 center-align">{{entrada.titulo}}</h4>
-                    <center><span class="card-title blue-text text-darken-1">Publicado el: {{entrada.fecha_publicacion}}</span></center>
-                        <p>{{entrada.contenido|safe}}</p>
-                  </div>
-                  <div class="card-title">
-                    <ul class="pagination">
-                    {% for ets in entradas %} 
-                     <li class="waves-effect"><a href="/blog/{{ets.slug}}">{{ets.id}}</a></li>
-                    {% endfor %}   
-                    </ul> 
-                  </div>   
+                    <h4 class="truncate red-text text-darken-2 center-align">{{object.title}}</h4>
+                    <center><span class="card-title blue-text text-darken-1">Publicado el: {{object.created}}</span></center>
+                        <p>{{object.content|safe}}</p>
+                  </div> 
                 </div>
         </div>
         <div class="col s12 m3">
@@ -34,8 +28,8 @@
             </div>
             <div class="input-field col s12">
               <i class="mdi-action-account-circle prefix"></i>
-              {{form.name}}
-              {{form.name.label_tag}}
+              {{form.first_name}}
+              {{form.first_name.label_tag}}
             </div>
             <div class="input-field col s12">
               <i class="mdi-action-subject prefix"></i>
@@ -52,9 +46,9 @@
           </div><!-- fin de card-panel 2 -->
           <div class="card"><!-- inicio del card panel 2-->
             <center><p class="flow-text red-text text-darken-1">Categorias</p></center>
-            {% for categoria in categorias %}
+            {% for categoria in categorys %}
               <div class="collection">
-                <a href="#" class="collection-item">{{categoria.nombre}}<span class="new badge">4</span></a>
+                <a href="{% url 'blog_app:blogger' %}" class="collection-item">{{categoria.name}}<span class="new badge"></span></a>
               </div>
             {% endfor %}
           </div><!-- fin de card-panel 2-->

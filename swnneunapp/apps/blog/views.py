@@ -34,12 +34,14 @@ class IndexBlog(FormMixin, ListView):
         first_name = form.cleaned_data['first_name']
         last_name = form.cleaned_data['last_name']
         email = form.cleaned_data['email']
-        subscription = Subscription(
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-        )
-        subscription.save()
+        #validamos si el email existe
+        if Subscription.objects.filter(email=user).count()==0:
+            subscription = Subscription(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+            )
+            subscription.save()
         return super(IndexBlog, self).form_valid(form)
 
 
