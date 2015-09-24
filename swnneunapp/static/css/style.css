@@ -1,17 +1,36 @@
-body{
+body {
     background-color: #fafafa;
 }
 
-nav ul a{
-    color: #1565c0;
+nav ul a {
+    color: #5280E5;
 }
 
-.values .values-section{
+.icon-collapse {
+  color: #6C9AFB;
+}
+
+.slogan-neunapp {
+  color: #89B4FF;
+  font-size: .6em;
+  font-style: italic;
+  font-weight: 300;
+  left: 38px;
+  padding-bottom: 0.3em;
+  position: absolute;
+  top: 6px;
+}
+
+.values .values-section {
     -webkit-box-shadow: inset 0px 8px 6px -6px rgba(0,0,0,0.3), inset 0 -8px 6px -6px rgba(0,0,0,.3);
     -moz-box-shadow: inset 0px 8px 6px -6px rgba(0,0,0,0.3), inset 0 -8px 6px -6px rgba(0,0,0,.3);
     box-shadow: inset 0px 8px 6px -6px rgba(0,0,0,0.3), inset 0 -8px 6px -6px rgba(0,0,0,.3);
     margin: 0.7rem auto;
     padding: 0.5rem 0;
+}
+
+.values-title {
+  color: #5381E6;
 }
 
 .values .card-panel .row {
@@ -170,3 +189,5 @@ Footer content
   margin: 2px 0;
   font-size: 0.9em;
 }
+
+

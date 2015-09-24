@@ -1,9 +1,14 @@
+{% load staticfiles %}
+
 <header class="header">
     <nav class="white light-blue-text text-darken-4">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="{% url 'home_app:index' %}" class="brand-logo">Logo</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars"></i></a>
+                <a href="{% url 'home_app:index' %}" class="brand-logo">
+                    <img src="{% static 'img/logo3_opt.png' %}" alt="" class="responsive-img">
+                    <span class="slogan-neunapp">eunapp.</span>
+                </a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars icon-collapse"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{% url 'home_app:index' %}">Home</a></li>
                     <li><a href="{% url 'home_app:nosotros' %}">Quienes somos</a></li>
